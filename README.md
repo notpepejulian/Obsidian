@@ -10,7 +10,7 @@ Este repositorio se enfoca en diversas áreas clave de la administración de sis
 - 🔐 **Seguridad en la Nube** (gestión de credenciales, IAM, buenas prácticas)
 - 🏗 **Arquitectura de Sistemas y Redes en Cloud** (diseño de infraestructuras, alta disponibilidad, balanceo de carga)
 - 🐳 **Docker y Contenedores** (despliegue y gestión de aplicaciones en contenedores)
-- 📜 **Automatización y Herramientas DevOps** (Terraform, CI/CD, scripting)
+- 📜 **Automatización y Herramientas Cloud** (Terraform | HCL)
 
 ## 📂 Organización de los Apuntes
 
