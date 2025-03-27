@@ -113,6 +113,10 @@ Para eliminar recursos creados:
 - **`terraform destroy`** → Borra todos los recursos definidos en la configuración.
 
 
+## Explicación Más Detallada
+
+Para una explicación mas detallada puedes revisar el documento de 
+
 ## Desplegar Proyectos con Terraform
 
 Una vez entendidos estos conceptos, podemos continuar con otras opciones para seguir entendiendo el funcionamiento de esta tecnología. Por aquí dejo un enlace local a *como desplegar proyectos con Terraform*: 

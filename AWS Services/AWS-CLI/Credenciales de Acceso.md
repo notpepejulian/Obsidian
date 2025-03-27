@@ -68,4 +68,4 @@ aws sts get-caller-identity
 
 
 ## ¿Más Acerca de Terraform y HCL?
-Con esto, ya se puede empezar a desarrollar una infraestructura de **AWS**, **Google**, **Azure**... usando herramientas como [[HCL Concepts|Terraform con HCL]]. 
+Con esto, ya se puede empezar a desarrollar una infraestructura de **AWS**, **Google**, **Azure**... usando herramientas como [[Terraform Concepts|Terraform con HCL]]. 
