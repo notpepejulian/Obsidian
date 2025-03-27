@@ -189,18 +189,8 @@ output "id_instancia" {
     ```bash
     terraform output ip_publica
     ```
-    
-5.  Conectarse a la instancia (si tiene IP pública) 
-    
-    ```bash
-    ssh -i "tu-clave.pem" ec2-user@IP_PUBLICA
-    ```
-    
-    - Reemplaza `tu-clave.pem` con tu clave SSH válida.
         
-    - Reemplaza `IP_PUBLICA` con la IP que te dio Terraform.
-        
-6.  Destruir la infraestructura cuando termines 
+5.  Destruir la infraestructura cuando termines 
     
     ```bash
     terraform destroy
