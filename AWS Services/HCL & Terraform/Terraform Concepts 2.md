@@ -1,4 +1,4 @@
-En este documento hablaremos más en detalle acerca de los conceptos de **Terraform**, más concretamente en su **sintaxis**. La forma en la que se establece el código y como se aplica en proyectos reales. 
+En este documento hablaremos más en detalle acerca de los conceptos de **Terraform**, más concretamente en su **sintaxis**. La forma en la que se establece el código y como se aplica en proyectos reales. Recuerda que puedes visitar el anterior documento acerca de [[Terraform Concepts|Conceptos Terraform]].
 
 ## 1.  Bloques en Terraform
 
@@ -39,7 +39,8 @@ resource "<tipo_de_recurso>" "<nombre_local>" {
     
 - `{ ... }`: Contiene las configuraciones del recurso, como el tamaño de la máquina, la imagen base (AMI), etiquetas, etc.
     
-
+> Para más información acerca de los recursos y los tipos de recursos que hay, haz click en el enlace al documento de [[Recursos en Terraform|recursos en Terraform]], donde encontrarás información más detallada sobre su sintaxis. 
+	
 ### Ejemplo con un servidor en AWS
 
 ```hcl
