@@ -604,7 +604,7 @@ resource "aws_s3_bucket" "web_data_backup" {
 
 Este conjunto de archivos conforma una infraestructura inicial en AWS que:
 
-- Asegura la conectividad entre las regiones mediante un Transit Gateway, lo que posibilita la comunicación segura entre los datos de EE. UU., España e Irlanda.
+- Asegura la conectividad entre las regiones mediante un Transit Gateway, lo que posibilita la comunicación segura entre los datos de EEUU, España e Irlanda.
     
 - Configura backups nocturnos en la base de datos primaria y réplicas en las otras regiones para mantener la disponibilidad y baja latencia en lecturas.
     
