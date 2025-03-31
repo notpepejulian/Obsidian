@@ -56,5 +56,3 @@ EJEMPLO: (No es la estructura actual)
 El objetivo de este repositorio es servir como referencia para mis estudios y como documentación de mi proceso de aprendizaje en cloud computing, seguridad y administración de sistemas.
 
 ---
-
-📌 *Si encuentras útil este repositorio, ¡no dudes en hacer un fork o contribuir!* 
