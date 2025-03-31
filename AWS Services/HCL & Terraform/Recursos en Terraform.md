@@ -214,6 +214,31 @@ resource "aws_iam_role" "mi_rol" {
 
 - `assume_role_policy`: Una política que define quién puede asumir este rol.
     
+#### 9. aws_ec2_transit_gateway (Conexión Global)
+
+Este recurso permite la conexion global mediante instancias que se encuentren en una vpc. 
+
+**Ejemplo:**
+
+```
+resource "aws_ec2_transit_gateway" "tgw" {
+  provider    = aws.california
+  description = "Transit Gateway for global connectivity"
+  tags = { Name = "Global-TGW" }
+}
+```
+	
+##### aws_ec2_transit_gateway_vpc_attachment 
+
+```
+resource "aws_ec2_transit_gateway_vpc_attachment" "california_attachment" {
+  provider           = aws.california
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  vpc_id             = aws_vpc.california_vpc.id
+  subnet_ids         = [aws_subnet.california_public_subnet.id]
+  tags = { Name = "California-TGW-Attachment" }
+}
+```
 
 ---
 
