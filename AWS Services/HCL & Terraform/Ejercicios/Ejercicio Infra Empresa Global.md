@@ -18,6 +18,18 @@ A continuación muestro un ejemplo de código Terraform que implementa una infra
 > **Nota:** Este ejemplo utiliza valores “placeholder” (como AMI IDs, contraseñas, etc.) que se deben reemplazar por los valores reales de tu entorno. Además, es posible que sea necesario ajustar detalles según requerimientos específicos (por ejemplo, engine de base de datos, instancias, zonas de disponibilidad, etc.). 
 
 ---
+### Enunciado
+
+```
+Una empresa de EEUU que tiene sede en california y ofrece servicios a nivel internacional busca expandirse y ha decidio instalar oficinas en España e Irlanda. 
+
+La empresa necesita tener una infraestructura solida que comunique de manera segura sus datos de EEUU con los de España e Irlanda sin perder latencia ni disponibilidad. En cuanto a las tecnologías que se necesitan, la empresa solicita que las bases de datos tengan un backup nocturno y que los datos de sus paginas web sean tambien almacenados de manera segura y eficiente. 
+
+Cuentan con servidores web, bases de datos, balanceadores de carga, vpn.. Tu objetivo es diseñar y montar la infraestructura cloud (aws) que mejor se ajuste para la empresa.
+```
+
+
+---
 
 ### Archivo: `providers.tf`
 
@@ -600,5 +612,3 @@ Este conjunto de archivos conforma una infraestructura inicial en AWS que:
     
 - Proporciona un bucket S3 para almacenar datos y respaldos de manera segura.
     
-
-Si requieres mayor detalle o deseas ajustar parámetros específicos (como el tipo de base de datos, configuración de VPN, políticas de IAM, etc.), indícalo para poder complementar la solución.
