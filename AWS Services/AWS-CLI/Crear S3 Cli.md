@@ -1,4 +1,4 @@
-Ahora puedes crear un bucket en S3 ejecutando:
+Tras configurar las [[Credenciales de Acceso]] podemos crear un bucket en s3 ejecutando:
 
 ```sh
 aws s3api create-bucket --bucket nombre-del-bucket --region us-east-1
