@@ -1,7 +1,4 @@
-En AWS CDK, al crear un bucket de S3, puedes configurar una amplia variedad de propiedades para definir su comportamiento, seguridad, almacenamiento y más. Aquí te dejo una lista completa de las propiedades que se pueden asignar a un bucket de S3 en TypeScript, con una breve explicación de cada una.
-
-## Propiedades de un Bucket de S3 en AWS CDK
-
+En AWS CDK, al crear un bucket de S3, se puede configurar una amplia variedad de propiedades para definir su comportamiento, seguridad, almacenamiento y más. 
 ### 1. **bucketName**: `string`
 
 - **Descripción**: El nombre del bucket de S3.
