@@ -94,7 +94,7 @@ Ingresa:
 
 ---
 
-#### 2. Asumir el rol ` NombreDelRol`
+#### 2. Asumir el rol `NombreDelRolEstablecido`
 
 Algunos roles requieren autenticación multifactor (MFA). Para asumir el rol con MFA, primero obtén el código MFA y luego úsalo en el siguiente comando:
 
