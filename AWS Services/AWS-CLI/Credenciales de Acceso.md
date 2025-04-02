@@ -69,7 +69,7 @@ aws sts get-caller-identity
 ---
 ### Asumir Rol
 
-Para conectarte a tu cuenta de AWS y asumir el rol `AssumeRoleNeorisTrainers` para crear un bucket en S3, sigue estos pasos:
+Para conectarte a tu cuenta de AWS y asumir el rol `NombreDelRol` para crear un bucket en S3, sigue estos pasos:
 
 ---
 
@@ -94,12 +94,12 @@ Ingresa:
 
 ---
 
-#### 2. Asumir el rol `AssumeRoleNeorisTrainers`
+#### 2. Asumir el rol ` NombreDelRol`
 
 Algunos roles requieren autenticación multifactor (MFA). Para asumir el rol con MFA, primero obtén el código MFA y luego úsalo en el siguiente comando:
 
 ```sh
-aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" \ --role-session-name "MiSesion" \ --serial-number arn:aws:iam::931556474233:mfa/NachoNeoris \ --token-code 123456`
+aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/NombreDelRol" \ --role-session-name "MiSesion" \ --serial-number arn:aws:iam::931556474233:mfa/NachoNeoris \ --token-code 123456`
 ```
 
 > Reemplaza `123456` con el código generado por tu dispositivo MFA.
@@ -109,7 +109,7 @@ aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisT
 Ejecuta el siguiente comando para obtener credenciales temporales:
 
 ```sh
-aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" --role-session-name "MiSesion"
+aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/NombreDelRol" --role-session-name "MiSesion"
 ```
 
 ##### Esto devolverá una respuesta JSON como:
