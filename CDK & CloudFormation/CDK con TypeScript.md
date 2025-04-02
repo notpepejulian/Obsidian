@@ -51,6 +51,5 @@ const entorno = this.node.tryGetContext("env");
 console.log(`Desplegando en entorno: ${entorno}`);
 ```
 
-## Conclusión
 
-AWS CDK con TypeScript permite definir infraestructura de forma programática, facilitando su gestión y mantenimiento. ¿Quieres probar con DynamoDB o API Gateway?
+## Sintaxis Recuros CDK
