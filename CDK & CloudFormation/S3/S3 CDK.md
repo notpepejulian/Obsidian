@@ -77,7 +77,7 @@ Este es el segundo bucket que se crea, llamado `oc-s3-bucket-nacho-481186298209`
 
 Las reglas de ciclo de vida definen cómo se gestionan los objetos dentro de un bucket. En este caso, se configuran tres reglas para el primer bucket:
 
-### Regla de limpieza diaria
+### Regla de limpieza diaria ([[Lifecycle Policies]])
 
 ```typescript
 bucket.addLifecycleRule({

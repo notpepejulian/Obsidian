@@ -1,4 +1,4 @@
-En AWS CDK, cuando trabajas con una **VPC** (Virtual Private Cloud), hay una serie de propiedades que puedes configurar para personalizar la VPC y su infraestructura asociada. Esta es una lista de todas las propiedades principales que puedes asignar a una VPC con **AWS CDK** utilizando **TypeScript**.
+En AWS CDK, cuando trabajas con una **VPC** (Virtual Private Cloud), hay una serie de propiedades que puedes configurar para personalizar la VPC y su infraestructura asociada. Esta es una lista de todas las propiedades principales que puedes asignar a una VPC con **AWS CDK** utilizando **TypeScript** incluyendo otros servicios como [[S3 CDK]].
 
 ### 1. **cidr**: `string`
 
