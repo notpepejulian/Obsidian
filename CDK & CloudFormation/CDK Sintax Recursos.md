@@ -93,26 +93,28 @@ new s3.Bucket(this, 'MiBucketAvanzado', {
         - `BucketEncryption.KMS` → Usa claves KMS personalizadas.
             
 
+
+> [[|Propiedades de S3 en CDK]]
+
 ## 3. Crear una VPC personalizada
 
 CDK nos permite definir redes virtuales en AWS con VPCs personalizadas.
 
 ```typescript
-import * as ec2 from 'aws-cdk-lib/aws-ec2'; // Importamos el módulo de EC2 para crear VPCs y redes
+import * as ec2 from 'aws-cdk-lib/aws-ec2'; 
 
-// Creamos una VPC personalizada
 const vpc = new ec2.Vpc(this, 'MiVPCPersonalizada', {
-  maxAzs: 2, // Número máximo de zonas de disponibilidad en las que se creará la VPC
-  subnetConfiguration: [ // Configuración de las subnets dentro de la VPC
+  maxAzs: 2, 
+  subnetConfiguration: [ 
     {
-      cidrMask: 24, // Tamaño de la subnet en la notación CIDR
-      name: 'PublicSubnet', // Nombre de la subnet
-      subnetType: ec2.SubnetType.PUBLIC, // La subnet es pública (tiene acceso directo a Internet)
+      cidrMask: 24, 
+      name: 'PublicSubnet', 
+      subnetType: ec2.SubnetType.PUBLIC,
     },
     {
       cidrMask: 24,
       name: 'PrivateSubnet',
-      subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, // Subnet privada con acceso a Internet a través de NAT
+      subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS, 
     },
   ],
 });
@@ -153,9 +155,9 @@ Ahora que tenemos una VPC, agreguemos una instancia EC2 dentro de ella.
 
 ```typescript
 const instance = new ec2.Instance(this, 'MiInstancia', {
-  vpc, // La VPC donde se lanzará la instancia
-  instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.MICRO), // Tipo de instancia (t2.micro)
-  machineImage: ec2.MachineImage.latestAmazonLinux(), // Imagen de Amazon Linux más reciente
+  vpc, 
+  instanceType: ec2.InstanceType.of(ec2.InstanceClass.T2, ec2.InstanceSize.MICRO), 
+  machineImage: ec2.MachineImage.latestAmazonLinux(), 
 });
 ```
 
@@ -179,16 +181,3 @@ const instance = new ec2.Instance(this, 'MiInstancia', {
     
     - `ec2.MachineImage.latestAmazonLinux()` → Usa la imagen de Amazon Linux más reciente.
         
-
-## Conclusión
-
-Hemos explicado cada línea de código en detalle. Ahora sabemos cómo:
-
-- Crear un **S3 Bucket** básico y avanzado.
-    
-- Definir una **VPC** con diferentes subnets.
-    
-- Lanzar una **instancia EC2** dentro de una VPC.
-    
-
-¿Quieres seguir explorando otros recursos como RDS, ALB o IAM?

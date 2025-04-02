@@ -94,15 +94,15 @@ Ingresa:
 
 ---
 
-#### 2. Asumir el rol `NombreDelRolEstablecido`
+#### 2. Asumir el rol ` NombreDelRol`
 
 Algunos roles requieren autenticación multifactor (MFA). Para asumir el rol con MFA, primero obtén el código MFA y luego úsalo en el siguiente comando:
 
 ```sh
-aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/NombreDelRolEstablecido" \
---role-session-name "MiSesion" \
+aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" \
+--role-session-name "MiSesionNacho" \
 --serial-number "arn:aws:iam::931556474233:mfa/NachoNeoris" \
---token-code "123456"
+--token-code ""
 
 ```
 
