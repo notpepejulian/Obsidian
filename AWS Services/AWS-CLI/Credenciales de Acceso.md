@@ -37,7 +37,7 @@ Para obtener tanto **Access Key** como **Secret Key** en AWS y poder realizar un
 
 ---
 
-### Configurar las credenciales en Terraform
+### Configurar las credenciales 
 
 En Fedora, usa la terminal para configurar las credenciales con `aws-cli`:
 
@@ -66,6 +66,89 @@ Ejecuta este comando para comprobar que tienes acceso:
 aws sts get-caller-identity
 ```
 
+---
+### Asumir Rol
 
-## ¿Más Acerca de Terraform y HCL?
-Con esto, ya se puede empezar a desarrollar una infraestructura de **AWS**, **Google**, **Azure**... usando herramientas como [[Terraform Concepts|Terraform con HCL]]. 
+Para conectarte a tu cuenta de AWS y asumir el rol `AssumeRoleNeorisTrainers` para crear un bucket en S3, sigue estos pasos:
+
+---
+
+#### 1. Configurar tus credenciales en AWS CLI
+
+Si aún no lo has hecho, configura tus credenciales en AWS CLI con el siguiente comando:
+
+```sh
+aws configure
+```
+
+Ingresa:
+
+- **Access Key ID**
+    
+- **Secret Access Key**
+    
+- **Región por defecto** (por ejemplo, `us-east-1`)
+    
+- **Formato de salida** (opcional, `json`, `table` o `text`)
+    
+
+---
+
+#### 2. Asumir el rol `AssumeRoleNeorisTrainers`
+
+Algunos roles requieren autenticación multifactor (MFA). Para asumir el rol con MFA, primero obtén el código MFA y luego úsalo en el siguiente comando:
+
+```sh
+aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" \ --role-session-name "MiSesion" \ --serial-number arn:aws:iam::931556474233:mfa/NachoNeoris \ --token-code 123456`
+```
+
+> Reemplaza `123456` con el código generado por tu dispositivo MFA.
+
+- O bien: 
+
+Ejecuta el siguiente comando para obtener credenciales temporales:
+
+```sh
+aws sts assume-role --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" --role-session-name "MiSesion"
+```
+
+##### Esto devolverá una respuesta JSON como:
+
+```json
+{
+    "Credentials": {
+        "AccessKeyId": "ASIAEXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "FQoGZXIvYXdzEJr...EXAMPLETOKEN...",
+        "Expiration": "2024-04-02T15:04:56Z"
+    }
+}
+```
+
+---
+
+#### 3. Exportar las credenciales temporales
+
+Para usar las credenciales en la terminal, ejecuta:
+
+```sh
+export AWS_ACCESS_KEY_ID="ASIAEXAMPLE"
+export AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+export AWS_SESSION_TOKEN="FQoGZXIvYXdzEJr...EXAMPLETOKEN..."
+```
+
+---
+
+#### 4. Verificar que el rol fue asumido
+
+Ejecuta:
+
+```sh
+aws sts get-caller-identity
+```
+
+Si el rol fue asumido correctamente, verás el ARN del rol en la respuesta.
+
+---
+## ¿Más Acerca de Terraform , HCL o CDK?
+Con esto, ya se puede empezar a desarrollar una infraestructura de **AWS**, **Google**, **Azure**... usando herramientas como [[Terraform Concepts|Terraform con HCL]] o [[CDK Sintax Recursos|CDK]]
