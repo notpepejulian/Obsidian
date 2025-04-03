@@ -15,9 +15,7 @@ GroupName is only supported for EC2-Classic and default VPC.
 Este problema ocurre porque:
 
 1. **No tienes una VPC por defecto en tu cuenta de AWS**
-    
 2. **No especificaste una VPC y un Subnet en tu código de Terraform**
-    
 
 En AWS, las instancias EC2 necesitan estar dentro de una **VPC (Virtual Private Cloud)**, y algunas cuentas nuevas de AWS **no tienen una VPC por defecto**.
 

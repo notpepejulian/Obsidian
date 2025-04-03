@@ -9,11 +9,6 @@ Un bufete de abogados quiere construir una aplicación de IA utilizando modelos 
 - [x] C. Desarrolle un chatbot de resumen.
 - [ ] D. Desarrollar un sistema de traducción multilingüe. 
 
-### 📝 Contexto del Caso:
-
-Un bufete de abogados quiere construir una aplicación de IA utilizando **Modelos de Lenguaje Grande (LLM)**. La aplicación debe ser capaz de **leer documentos legales** y **extraer puntos clave** de estos documentos. Aquí estamos buscando una solución que permita procesar y entender texto, especialmente textos legales.
-
-Ahora, veamos las opciones.
 
 ---
 
@@ -104,12 +99,6 @@ Una empresa quiere clasificar los genes humanos en 20 categorías basadas en las
 - [ ] C. Regresión logística
 - [ ] D. Redes neuronales
 
-### 📝 Contexto del Caso:
-
-La empresa necesita clasificar genes humanos en 20 categorías basadas en características genéticas. Además, requiere un modelo de **Machine Learning (ML)** que sea **interpretable**, es decir, que se pueda entender cómo el mecanismo interno del modelo afecta la salida.
-
-Ahora, vamos a analizar cada opción.
-
 ---
 
 ### A. Árboles de decisión
@@ -185,3 +174,23 @@ Las redes neuronales no cumplen con el requisito de **interpretabilidad** del ca
 - **C. Regresión logística**: adecuada para clasificación multiclase, pero no proporciona una interpretación tan clara como los árboles de decisión.
     
 - **D. Redes neuronales**: muy eficaces para clasificación, pero no son fácilmente interpretables (caja negra), lo que dificulta la documentación de cómo el modelo llega a la salida.
+
+# Pregunta 3
+
+```
+A company makes forecasts each quarter to decide how to optimize operations to meet expected demand. The company uses ML models to make these forecasts.  
+An AI practitioner is writing a report about the trained ML models to provide transparency and explainability to company stakeholders.  
+What should the AI practitioner include in the report to meet the transparency and explainability requirements?
+```
+
+- [ ] A. Code for model training
+- [x] B. Partial dependence plots (PDPs) Most Voted
+- [ ] C. Sample data for training
+- [ ] D. Model convergence tables
+
+### Explanation:
+
+- [[PDPs (Partial Dependence Plots)]] help explain how individual features influence the model's predictions. They provide stakeholders with an intuitive understanding of the relationship between input variables and forecasted demand, improving explainability.
+- **Code for model training (A)** might be useful for reproducibility but is too technical for most stakeholders.
+- **Sample data for training (C)** may raise privacy concerns and might not necessarily improve explainability.
+- **Model convergence tables (D)** provide insights into model training stability but do not directly explain how predictions are made.
