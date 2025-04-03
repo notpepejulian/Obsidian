@@ -3,9 +3,7 @@ Para obtener tanto **Access Key** como **Secret Key** en AWS y poder realizar un
 
 1. **Accede a la consola de AWS**
     - Ve a [AWS Management Console](https://aws.amazon.com/console/)
-        
     - Inicia sesión con tu cuenta de AWS
-        
 2. **Ir a IAM (Identity and Access Management)**
     - En la barra de búsqueda de AWS, escribe "IAM" y selecciona **IAM**
         

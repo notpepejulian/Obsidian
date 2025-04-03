@@ -12,7 +12,7 @@ aws s3api create-bucket --bucket nombre-del-bucket --region us-east-1 --create-b
 
 ---
 
-## 6. Confirmar que el bucket se creó
+## Confirmar que el bucket se creó
 
 Para listar los buckets en tu cuenta, usa:
 
