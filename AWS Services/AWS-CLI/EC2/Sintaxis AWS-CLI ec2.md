@@ -1,5 +1,5 @@
 
-AWS CLI ofrece una amplia variedad de comandos para gestionar instancias y recursos de EC2. Aquí te enumero los principales grupos de comandos, su función y sintaxis:
+AWS CLI ofrece una amplia variedad de comandos para gestionar instancias y recursos de EC2. Aquí enumero los principales grupos de comandos, su función y sintaxis:
 
 ---
 
