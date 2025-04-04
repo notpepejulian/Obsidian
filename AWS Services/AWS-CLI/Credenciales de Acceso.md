@@ -149,7 +149,96 @@ Ejecuta:
 aws sts get-caller-identity
 ```
 
-Si el rol fue asumido correctamente, verás el ARN del rol en la respuesta.
+Si el rol fue asumido correctamente, verás el ARN del rol en la respuesta. en B
+
+### Script en Bash para asumir rol
+
+``` bash
+#!/bin/bash
+
+# ────────────────────────────────────────────────────────────────────────────────
+# 🌐 AWS Role Assumption Tool
+# Nacho @ Neoris — Estilo limpio
+# ────────────────────────────────────────────────────────────────────────────────
+
+# Colores
+VERDE='\033[0;32m'
+ROJO='\033[0;31m'
+AMARILLO='\033[1;33m'
+AZUL='\033[1;34m'
+NC='\033[0m' # Reset color
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Mostrar credenciales actuales
+echo -e "\n${AZUL}🔐 Credenciales actuales (si existen):${NC}"
+[[ -n "$AWS_ACCESS_KEY_ID" ]]       && echo -e "  ${VERDE}AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}${NC}"
+[[ -n "$AWS_SECRET_ACCESS_KEY" ]]   && echo -e "  ${VERDE}AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}${NC}"
+[[ -n "$AWS_SESSION_TOKEN" ]]       && echo -e "  ${VERDE}AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}${NC}"
+echo ""
+
+# ────────────────────────────────────────────────────────────────────────────────
+#Configurar credenciales
+read -p "$(echo -e "${AZUL}❓ ¿Quieres reconfigurar las credenciales de AWS? (s/n): ${NC}")" reconfigurar
+if [[ "$reconfigurar" =~ ^[sS]$ ]]; then
+    aws configure
+    echo -e "${VERDE}✔️  Reconfiguración completada.${NC}"
+    echo ""
+fi
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Eliminar variables previas
+read -p "$(echo -e "${AZUL}❓ ¿Quieres eliminar las variables de entorno actuales de AWS para el rol? (s/n): ${NC}")" eliminar_vars
+if [[ "$eliminar_vars" =~ ^[sS]$ ]]; then
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SECRET_KEY
+    unset AWS_SESSION_TOKEN
+    echo -e "${AMARILLO}⚠️  Variables de entorno eliminadas.${NC}"
+    echo ""
+fi
+
+# ────────────────────────────────────────────────────────────────────────────────
+# Asumir nuevo rol
+read -p "$(echo -e "${AZUL}❓ ¿Quieres realizar una nueva conexión con assume-role? (s/n): ${NC}")" nueva_conexion
+if [[ "$nueva_conexion" =~ ^[sS]$ ]]; then
+    echo -ne "${AZUL}🔢 Introduce el código MFA (token): ${NC}"
+    read token
+
+    echo -e "${AZUL}⏳ Asumiendo rol...${NC}"
+
+    CRED_JSON=$(aws sts assume-role \
+        --role-arn "arn:aws:iam::481186298209:role/AssumeRoleNeorisTrainers" \
+        --role-session-name "MiSesionNacho" \
+        --serial-number "arn:aws:iam::931556474233:mfa/NachoNeoris" \
+        --token-code "$token")
+
+    if [ $? -ne 0 ]; then
+        echo -e "\n${ROJO}❌ Error al asumir el rol. Verifica el token o configuración.${NC}"
+        exit 1
+    fi
+
+    ACCESS_KEY_ID=$(echo "$CRED_JSON" | jq -r '.Credentials.AccessKeyId')
+    SECRET_ACCESS_KEY=$(echo "$CRED_JSON" | jq -r '.Credentials.SecretAccessKey')
+    SESSION_TOKEN=$(echo "$CRED_JSON" | jq -r '.Credentials.SessionToken')
+
+    echo -e "\n${VERDE}✅ Nueva sesión asumida exitosamente.${NC}"
+    echo -e "${AMARILLO}🔑 Credenciales generadas:${NC}"
+    echo -e "  AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID}"
+    echo -e "  AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
+    echo -e "  AWS_SESSION_TOKEN=${SESSION_TOKEN}"
+
+    echo -e "────────────────────────────────────────────────────────────────────────────────"
+
+    echo -e "\n${AZUL}📦 Usa los siguientes comandos para exportar en tu shell actual:${NC}"
+    echo -e "  export AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID}"
+    echo -e "  export AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
+    echo -e "  export AWS_SESSION_TOKEN=${SESSION_TOKEN}"
+else
+    echo -e "${AMARILLO}⚠️  Se mantienen las credenciales actuales.${NC}"
+fi
+
+echo -e "\n${AZUL}🚀 Listo.${NC}\n"
+```
 
 ---
 ## ¿Más Acerca de Terraform , HCL o CDK?
