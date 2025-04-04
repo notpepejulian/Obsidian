@@ -149,7 +149,10 @@ Ejecuta:
 aws sts get-caller-identity
 ```
 
-Si el rol fue asumido correctamente, verás el ARN del rol en la respuesta. en B
+Si el rol fue asumido correctamente, verás el ARN del rol en la respuesta. 
+
+> NOTA: También hay herramientas para poder asumir el rol de manera eficiente como en:
+> [Awsu.me](https://awsu.me/)
 
 ### Script en Bash para asumir rol
 
