@@ -119,3 +119,31 @@ bucket.addLifecycleRule({
 ```
 
 - `transitionAfter: cdk.Duration.days(0)`: mueve los objetos a la clase de almacenamiento `INTELLIGENT_TIERING` inmediatamente después de su carga si son mayores a 128 KB.
+
+### Crear un bucket con un bucket de logs
+
+También podemos crear un bucket y crear  el bucket de logs al especificarlo.  
+
+``` typescript
+const bucket = new s3.Bucket(this, 'cdk-nacho-s3-bucket', {
+versioned: true,
+encryption: s3.BucketEncryption.S3_MANAGED,
+blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+enforceSSL: true,
+removalPolicy: cdk.RemovalPolicy.RETAIN,
+autoDeleteObjects: false,
+objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
+publicReadAccess: false,
+serverAccessLogsPrefix: 'access-logs',
+serverAccessLogsBucket: new s3.Bucket(this, 'cdk-nacho-s3-bucket-logs', {
+	versioned: true,
+	encryption: s3.BucketEncryption.S3_MANAGED,
+	blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
+	enforceSSL: true,
+	removalPolicy: cdk.RemovalPolicy.RETAIN,
+	autoDeleteObjects: false,
+	objectOwnership: s3.ObjectOwnership.BUCKET_OWNER_ENFORCED,
+	publicReadAccess: false,
+	}),
+});
+```

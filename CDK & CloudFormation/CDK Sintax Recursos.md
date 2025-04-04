@@ -94,7 +94,7 @@ new s3.Bucket(this, 'MiBucketAvanzado', {
             
 
 
-> [[|Propiedades de S3 en CDK]]
+> [[S3 CDK]]
 
 ## 3. Crear una VPC personalizada
 
